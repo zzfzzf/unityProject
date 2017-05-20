@@ -5,17 +5,40 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;  
 public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandler,IPointerExitHandler,IBeginDragHandler, IDragHandler, IEndDragHandler{
 	private bool isRaycastLocationValid = true;//默认射线不能穿透物品  
+	///  技能名称
 	public string skillName{get;set;}
-	public string skillLevel{get;set;}
-	public string skillCd{get;set;}
-	public string skillMc{get;set;}
-	public string skillExp{get;set;}
-	public string skillDamage{get;set;}
+	///  技能等级
+	public float skillLevel{get;set;}
+	///  技能cd
+	public float skillCd{get;set;}
+	///  技能魔法消耗
+	public float skillMc{get;set;}
+	///  技能伤害
+	public float skillDamage{get;set;}
+	///  技能品阶 
 	public string skillWorth{get;set;}
+	///  技能特殊效果
 	public string skillSpecial{get;set;}
+	///  技能获取方式
 	public string skillGet{get;set;}
+	///  技能升级所需熟练度
+	public float totalExp{get;set;}
+	///  技能当前熟练度
+	public string currentExp{get;set;}
+	///  技能熟练度文字
+	public int skillExp{get;set;}
+	///  技能类型(单体,群攻) single 和 group
+	public string skillType{get;set;}
+	///  技能目标对象(自己,敌人) mine 和 enemy 和 friend(友军 暂无)
+	public string skillTarget{get;set;}
+	///  是否是持续技能(不为0则持续)
+	public float duration{ get; set;}
+	///  飞行距离 0就是顺发
+	public float flyDistance{ get; set;}
+	///  施法距离 
+	public float spellDistance{ get; set;}
 
-	// 技能拖拽对象
+	/// 技能拖拽对象
 	private GameObject dragGo;
 	// Use this for initialization
 	private GameObject parentObj;
@@ -23,16 +46,18 @@ public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandl
 	private GameObject currentSkill;
 
 
+	public float timer{ get; set;}
+
 	void Start () {
 		
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-	public bool AllowMove(){
+	private bool AllowMove(){
 		return !currentSkill.GetComponent<Image> ().sprite.name.Equals (DefaultSet.instance.QuickSkillIcon.name) && !currentSkill.GetComponent<Image> ().sprite.name.Equals (DefaultSet.instance.MouseSkillLeftIcon.name) && !currentSkill.GetComponent<Image> ().sprite.name.Equals (DefaultSet.instance.MouseSkillRightIcon.name);
 		
 	}
@@ -111,10 +136,10 @@ public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandl
 				if (go.transform.parent.gameObject.name.IndexOf ("quickSkill") > -1 && currentSkill.transform.parent.name.IndexOf("quickSkill")>-1) {
 					currentSkill.GetComponent<Image> ().sprite =go.transform.GetComponent<Image> ().sprite;
 				}
-				if ("mouseLeft".Equals (go.name)) {
-			
-				} else if ("mouseRight".Equals (go.name)) {
-
+				if ("mouseLeft".Equals (go.transform.parent.name)) {
+					GameObject.Find ("player").GetComponent<RoleAttack> ().mouseLeftSkill = this;
+				} else if ("mouseRight".Equals (go.transform.parent.name)) {
+					GameObject.Find ("player").GetComponent<RoleAttack> ().mouseRightSkill = this;
 				}
 				go.transform.GetComponent<Image> ().sprite = dragGo.GetComponent<Image> ().sprite;
 			} else {
@@ -129,7 +154,6 @@ public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandl
 						currentSkill.GetComponent<Image> ().sprite = DefaultSet.instance.QuickSkillIcon;
 					}
 				}
-
 			}
 		}
 		currentSkill = null;

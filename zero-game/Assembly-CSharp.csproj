@@ -50,7 +50,6 @@
      <Compile Include="Assets\Script\CinemaTest.cs" />
      <Compile Include="Assets\Script\ClickUI.cs" />
      <Compile Include="Assets\Script\DefaultSet.cs" />
-     <Compile Include="Assets\Script\GlobalScript.cs" />
      <Compile Include="Assets\Script\ItemButton.cs" />
      <Compile Include="Assets\Script\MonstarMove.cs" />
      <Compile Include="Assets\Script\MyDrag.cs" />
@@ -61,6 +60,7 @@
      <Compile Include="Assets\Script\SingletonManger.cs" />
      <Compile Include="Assets\Script\SkillButton.cs" />
      <Compile Include="Assets\Script\SkillController.cs" />
+     <Compile Include="Assets\Script\SkillObj.cs" />
      <Compile Include="Assets\Script\UIManager.cs" />
      <Compile Include="Assets\Script\test.cs" />
  <Reference Include="UnityEngine.UI">

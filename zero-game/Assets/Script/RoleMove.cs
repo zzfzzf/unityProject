@@ -12,6 +12,7 @@ public class RoleMove : MonoBehaviour {
 	private int rightUP = 5;
 	private int leftDown = 6;
 	private int rightDown = 7;
+	private int stand = 8;
 
 	public float speed = 3f;
 	private bool moving = false;
@@ -85,6 +86,7 @@ public class RoleMove : MonoBehaviour {
 		}
 		if(Input.GetMouseButtonUp(1)){
 			moving = false;
+			an.SetInteger ("direction",8);
 		}
 		if (!moving) {
 			if(Input.GetKey(KeyCode.UpArrow)){
@@ -108,12 +110,6 @@ public class RoleMove : MonoBehaviour {
 
 		}
 
-	}
-	void Test(){
-		
-		Vector3 moveDirection = new Vector3 (Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
-		Vector3 newPostion = Vector3.MoveTowards(rd.position, moveDirection, 5/Time.deltaTime);
-		rd.MovePosition (newPostion);
 	}
 	void OnDrawGizmos() {
 

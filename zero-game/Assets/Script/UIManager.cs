@@ -38,6 +38,10 @@ public class UIManager : MonoBehaviour {
 		{
 			OpenOrCloseBag();
 		}
+		if (Input.GetKeyUp(KeyCode.K))
+		{
+			OpenOrCloseSkill();
+		}
 	}
 
 	/// <summary>

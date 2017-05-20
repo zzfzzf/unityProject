@@ -10,10 +10,13 @@ public class SkillController : MonoBehaviour {
 	private GameObject skills;
 	// Use this for initialization
 	void Start () {
+		
+
+
 		skills = UIManager.instance.skill.transform.Find ("battleSkill/skills").gameObject;
-		for (int i = 0; i < 3; i++)  
+		for (int i = 0; i < skillList.Count; i++)  
 		{  
-			
+			// 技能对象名
 		} 
 	}
 	void Awake ()   
@@ -28,12 +31,12 @@ public class SkillController : MonoBehaviour {
 			skill.transform.SetParent(skills.transform);  
 			SkillButton sb = skill.GetComponent ("SkillButton") as SkillButton; 
 			sb.skillName = skillList[0].ToString();
-			sb.skillCd =skillList[0].ToString();
-			sb.skillMc =skillList[0].ToString();
-			sb.skillDamage =skillList[0].ToString();
-			sb.skillExp =skillList[0].ToString();
+			sb.skillCd =1;
+			sb.skillMc =1;
+			sb.skillDamage =1;
+			sb.skillExp =1;
 			sb.skillGet =skillList[0].ToString();
-			sb.skillLevel =skillList[0].ToString();
+			sb.skillLevel =1;
 			sb.skillSpecial =skillList[0].ToString();
 			sb.skillWorth =skillList[0].ToString();
 
@@ -41,13 +44,9 @@ public class SkillController : MonoBehaviour {
 	}  
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.K)){
-			
-			AddSkill ("黑龙波");
-		}	
+
 	}
 	void AddSkill (string skillName,int skillLevel =0 ){
-		print ("添加技能");
 		GameObject skill = Instantiate(Resources.Load(skillPrefabName)) as GameObject;  
 		skill.transform.SetParent (skills.transform,false);
 
