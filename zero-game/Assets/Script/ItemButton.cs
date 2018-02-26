@@ -73,6 +73,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
 	public void OnPointerEnter(PointerEventData eventData){//鼠标进入UI调用该方法
 		UIManager.instance.itemTip.GetComponent<Text>().text="\t\t\t中华人民共\n和国";
+
 		if (UIManager.instance.ShowItemTips)
 		{
 			//鼠标悬在同一物品上，则已经显示的tips保持原样，避免闪烁

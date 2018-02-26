@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BagController : MonoBehaviour {
 	// 一页背包格子数量
-	public int gridCount = 60;
+	public int gridCount = 70;
 	public List<Transform> gridList = new List<Transform>();
 	public GameObject obj;
 	private string gridPrefabName = "Prefab/Object/Grid"; 

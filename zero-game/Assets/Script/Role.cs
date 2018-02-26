@@ -16,12 +16,12 @@ public class Role : MonoBehaviour {
 	/// 法力值
 	public int mp{get;set;}
 	/// 称号荣誉
-	public int honor{get;set;}
+	public string honor{get;set;}
 	/// 行会
 	public string group{get;set;} 
 	/// 名称
 	public string roleName{get;set;}
-	/// 登记
+	/// 等级
 	public int level{get;set;}
 	/// 种族
 	public string race{get;set;} 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class SkillObj : MonoBehaviour {
 	///持续时间
 	public float duration{set;get;}
+	public string skillName{ set; get;}
+	public Vector2 targetPosition{ set; get;}
+	public Vector2 currentPosition{ set; get;}
 	// Use this for initialization
 	void Start () {
 		

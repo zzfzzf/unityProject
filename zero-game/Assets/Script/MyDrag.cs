@@ -39,7 +39,7 @@ public class MyDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 	// end dragging
 	public void OnEndDrag(PointerEventData eventData)
 	{
-
+		
 	}
 
 

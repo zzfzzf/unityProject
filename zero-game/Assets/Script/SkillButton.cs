@@ -7,6 +7,8 @@ public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandl
 	private bool isRaycastLocationValid = true;//默认射线不能穿透物品  
 	///  技能名称
 	public string skillName{get;set;}
+	///  该技能是否有buff
+	public bool hasBuff = false;
 	///  技能等级
 	public float skillLevel{get;set;}
 	///  技能cd
@@ -27,11 +29,9 @@ public class SkillButton : MonoBehaviour,ICanvasRaycastFilter,IPointerEnterHandl
 	public string currentExp{get;set;}
 	///  技能熟练度文字
 	public int skillExp{get;set;}
-	///  技能类型(单体,群攻) single 和 group
+	///  技能类型 战斗 生活 
 	public string skillType{get;set;}
-	///  技能目标对象(自己,敌人) mine 和 enemy 和 friend(友军 暂无)
-	public string skillTarget{get;set;}
-	///  是否是持续技能(不为0则持续)
+	///  是否是持续技能(不为1则持续)
 	public float duration{ get; set;}
 	///  飞行距离 0就是顺发
 	public float flyDistance{ get; set;}

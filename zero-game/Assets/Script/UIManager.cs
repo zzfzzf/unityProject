@@ -5,6 +5,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour {
 	
 	public static UIManager instance = null;
+	/// npc对话框
+	public GameObject npcSay;
+
 	/// 包裹对象
 	public GameObject bag;
 	/// 物品提示
