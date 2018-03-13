@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 36a51a30b7005814ea37461922f12040
+timeCreated: 1520074705
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: GJJZhiYi-M12S
+  fontNames:
+  - GJJZhiYi-M12S
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
