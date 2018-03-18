@@ -48,7 +48,7 @@ public class Battle : MonoBehaviour {
 	List<Skill> hurtHelpSkills = new List<Skill> ();
 
 	void Start () {
-
+		// 战斗开始的时候 从网络获取双方数据 以下为模拟数据
 
 		me.hpImage=UIManager.instance.battleSub.Find ("myHp/image").GetComponent<Image>();
 		myPet.hpImage=UIManager.instance.battleSub.Find ("myPetHp/image").GetComponent<Image>();
@@ -69,7 +69,7 @@ public class Battle : MonoBehaviour {
 
 		me.mpNum=UIManager.instance.battleSub.Find ("myMp/num").GetComponent<Text>();
 		myPet.mpNum=UIManager.instance.battleSub.Find ("myPetMp/num").GetComponent<Text>();
-		enemy.mpNum=UIManager.instance.battleSub.Find ("enemyHp/num").GetComponent<Text>();
+		enemy.mpNum=UIManager.instance.battleSub.Find ("enemyMp/num").GetComponent<Text>();
 		enemyPet.mpNum=UIManager.instance.battleSub.Find ("enemyPetMp/num").GetComponent<Text>();
 
 
@@ -130,15 +130,16 @@ public class Battle : MonoBehaviour {
 		otherList.Add (enemy);
 		otherList.Add (enemyPet);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	}
+	// 战斗显示的布局
 	private void battleContentLayout(){
 		// 文字始终处于底部
 		sb.value = 0;
 		battleContent.resizeTextMaxSize = (int)battleContent.preferredHeight/33;
 	}
+	//战斗过程
 	public void batting(){
 		
 		// 选定攻击者
@@ -163,9 +164,7 @@ public class Battle : MonoBehaviour {
 			}
 		}
 		if (ourSurvival == 0) {
-			
 			battleContent.text=battleContent.text+"敌方胜利\n";
-
 			exitBattle ();
 			return;
 		} else if(otherSurvival==0){
@@ -173,10 +172,13 @@ public class Battle : MonoBehaviour {
 			exitBattle ();
 			return;
 		}
+			
 	}
 	// 战利品
 	private void prize(){
-	
+		// 如果是我 则判断概率 获得材料 装备 各种物品 
+
+		// 领地 最后弄领地系统 
 	}
 	// 当前该谁攻击 返回序号
 	public int selectAttacker(){
@@ -229,7 +231,6 @@ public class Battle : MonoBehaviour {
 		hurt.hpNum.text=hurt.hp+"/"+hurt.maxHp;
 		// 蓝条显示
 		mpWidth = (float)(140 * (1 - (attacker.maxMp-attacker.mp) / attacker.maxMp));
-		print (attacker.name+"蓝条宽度"+mpWidth);
 		attacker.mpImage.GetComponent<RectTransform> ().sizeDelta = new Vector2 (mpWidth,30f);
 		attacker.mpNum.text=attacker.mp+"/"+attacker.maxMp;
 		mpWidth = (float)(140 * (1 - (hurt.maxMp-hurt.mp) / hurt.maxMp));
@@ -243,7 +244,6 @@ public class Battle : MonoBehaviour {
 		string hurtHelpStr= "";
 
 		if(attackSkill!=null){
-
 			attackStr = "使用"+"【"+ attackSkill.name+"】";
 		}
 		if(defendSkill!=null){
@@ -335,9 +335,8 @@ public class Battle : MonoBehaviour {
 	}
 		
 	private double attacking(Biology attacker,Biology hurt){
+		// 清空攻击技能池 避免被其他对象脏用
 		attackSkills.Clear();
-
-
 
 		// 0~100随机数 判断释放几率
 		int skillRandom = Random.Range (0, 100);
@@ -536,7 +535,7 @@ public class Battle : MonoBehaviour {
 		case 4: // 增加defend防御值
 			temp.defend += skill.effectNum;
 			break;
-		case 5: // 增加drawHp伤害百分比
+		case 5: // 增加attack伤害百分比
 			temp.attackUp += skill.effectNum;
 			break;
 		case 6: // 被击中最大生命回血

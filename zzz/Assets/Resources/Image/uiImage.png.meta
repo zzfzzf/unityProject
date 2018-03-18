@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e056c69cc04532a4cab34dde6d107f34
-timeCreated: 1520591775
+timeCreated: 1521200225
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -109,6 +109,7 @@ TextureImporter:
     21300204: UIAtlas_102
     21300206: UIAtlas_103
     21300208: UIAtlas_104
+    21300210: uiImage_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -1531,6 +1532,19 @@ TextureImporter:
         height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: uiImage_0
+      rect:
+        serializedVersion: 2
+        x: 1998
+        y: 1902
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

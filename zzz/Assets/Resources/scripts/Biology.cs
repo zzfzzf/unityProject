@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 
 public class Biology {
+	
 	public string name="";
 	public double hp;
 	public double mp;
